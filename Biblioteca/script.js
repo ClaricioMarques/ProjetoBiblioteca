@@ -1,31 +1,4 @@
-@model Livro
-
-
-
-<div class="row justify-content-md-center">
-    <form asp-action="Cadastro" method="POST" class="col-md-4">
-        <input type="hidden" asp-for="Id" />
-        <div class="form-group">
-            <label asp-for="Titulo">Título</label>
-            <input asp-for="Titulo" class="form-control" id="txtTitulo" onblur="validaTitulo()" placeholder="Titulo do livro"/>
-        </div>
-        <div class="form-group">
-            <label asp-for="Autor">Autor</label>
-            <input asp-for="Autor" class="form-control" id="txtAutor" onblur="validaAutor()" placeholder=""/>
-        </div>
-        <div>
-            <label asp-for="Ano">Ano</label>
-            <input asp-for="Ano" id="txtAno" onblur="validaAno()"/>
-        </div>
-        <input type="submit" value="Salvar" class="btn btn-primary"/>
-    </form>
-</div>
-
-
-
-
-<script>
-    function validaTitulo()
+function validaTitulo()
 {
     var valorTitulo = document.getElementById("txtTitulo").value;
 
@@ -35,7 +8,7 @@
         return false;      
     }
     else if(valorTitulo.length >= 10){
-       
+        alert("Insira somento o primeiro nome, max: 10 caracteres");
         document.getElementById("txtTitulo").style.background = "red";
         return false;
 
@@ -81,10 +54,3 @@ function validaAno()
         return true;
     }
 }
-
-
-
-
-
-
-</script>
